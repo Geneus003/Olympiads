@@ -1,17 +1,19 @@
+import math
+
 a, b = input().split(" ")
 a = int(a)
 b = int(b)
 b *= 2
 
-t = 0
+f = math.sqrt(a + b)
 
-if t == 0:
+if f % 1 == 0:
+  print(int(f * 4))
+else:
+  f = math.ceil(f) - 1
+  k = (a + b) // f
 
-  min_road = 10000000000
-
-  for i in range(1, (a + b)//2 + 2):
-    if (a + b) % i == 0:
-      if i * 2 + ((a + b) / i) * 2 < min_road:
-        min_road = i * 2 + ((a + b) / i) * 2
-
-  print(int(min_road))
+  if (a + b) / (f * k) == 1:
+    print(f * 2 + k * 2)
+  else:
+    print(((f + 1) * 2) + (k * 2))
