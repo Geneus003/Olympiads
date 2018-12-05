@@ -1,4 +1,4 @@
-package com.company;
+
 
 import java.util.Scanner;
 
@@ -24,7 +24,7 @@ public class Main{
         else{
             kol = (int)(a / (b + c));
         }
-        int rezult = 1;
+        long rezult = 0;
 
         int min_ch = Math.min(b, c);
         int max_ch = Math.max(b, c);
@@ -32,14 +32,22 @@ public class Main{
         int pr_max = 0;
         int kon = 0;
 
-        for (int i = 0; i < kol; i++){
-            pr_min += min_ch;
-            pr_max += max_ch;
+        if (min_ch == max_ch){
+          double koll = (double)(a) / (b + c);
+          if (koll == (int)(koll)){
+            System.out.println((int)(koll));
+          }
+          else{
+            System.out.println((int)(koll) + 1);
+          }
+          return;
+        }
 
-            kon = (int)((pr_max - pr_min) / (max_ch - min_ch));
-            kon += 1;
+        
 
-            rezult += kon;
+        for (int i = 0; i <= kol + 1; i++){
+
+            rezult += i;
 
         }
         System.out.println(rezult);
